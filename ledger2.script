@@ -1,0 +1,140 @@
+# create-ledger <name> description <description> seed <seed> 
+
+create-ledger test2 description "My New Test" seed "E97"
+
+# should return 'No committed blocks'
+get-account-balances
+
+# should return Ledger Exception
+validate
+
+
+# create-account <account-id>
+create-account jack
+create-account robert
+
+# should return 'account already exists'
+create-account jack
+
+create-account kyle
+create-account ana
+
+
+#process-transaction <transaction-id> amount <amount> fee <fee> note <note> payer <account-address> receiver <account-address>
+
+# expect error - invalid transaction (insufficient funds)
+process-transaction 1 amount 100 fee 10 note "private transfer" payer jack receiver robert
+
+process-transaction 2 amount 100 fee 10 note "fund account" payer master receiver robert
+
+# expect error - invalid transaction (fee)
+process-transaction 3 amount 1000 fee 5 note "fund account" payer master receiver jack
+
+# expect error - invalid transaction (negative amount)
+process-transaction 3 amount -1000 fee 5 note "fund account" payer master receiver jack
+
+# expect error - invalid transaction (insufficient funds)
+process-transaction 4 amount 500 fee 10 note "fund account" payer robert receiver jack
+
+
+# get-transaction <transaction-id>
+# expect error - transaction does not exist
+get-transaction 3
+
+# details of transaction 2 must be outputted
+get-transaction 2
+
+# get-account-balances
+# expect error - no committed blocks
+get-account-balances
+
+# get-account-balance <account-id>
+# expect error - no committed block
+get-account-balance jack
+
+process-transaction 1 amount 500 fee 50 note "fund account" payer master receiver jack
+process-transaction 3 amount 500 fee 50 note "fund account" payer master receiver kyle
+process-transaction 4 amount 500 fee 50 note "fund account" payer master receiver ana
+process-transaction 5 amount 500 fee 50 note "fund account" payer master receiver robert
+process-transaction 6 amount 50 fee 10 note "personal transfer" payer jack receiver robert
+process-transaction 7 amount 20 fee 10 note "personal transfer" payer ana receiver kyle
+process-transaction 8 amount 20 fee 10 note "personal transfer" payer kyle receiver robert
+process-transaction 9 amount 20 fee 10 note "personal transfer" payer jack receiver ana
+process-transaction 10 amount 5 fee 10 note "personal transfer" payer jack receiver robert
+
+# get-accout-balance <account-id>
+# For jack expect: 500 - 50 - 10 - 20 - 10 - 5 - 10 = 395
+get-account-balance jack
+
+# For kyle expect: 500 + 20 - 20 - 10 = 490
+get-account-balance kyle
+
+# For ana expect: 500 - 20 - 10 + 20 = 490
+get-account-balance ana
+
+# For robert expect: 100 + 500 + 50 + 20 + 5 = 675
+get-account-balance robert
+
+# For master expect: 2147481597
+get-account-balance master
+
+# get-account-balances should show same numbers as above
+get-account-balances
+
+# should not throw any errors
+validate
+
+# expect error - Payer or Receiver does not exist
+process-transaction 11 amount 5 fee 10 note "personal transfer" payer henry receiver robert
+
+# expect error - Payer or Receiver does not exist
+process-transaction 11 amount 5 fee 10 note "personal transfer" payer master receiver henry
+
+
+# get-block <block-number>
+# expect error - block 2 does not exist
+get-block 2
+
+# expect block details
+get-block 1
+
+process-transaction 21 amount 50 fee 10 note "dinner" payer master receiver jack
+process-transaction 22 amount 50 fee 10 note "dinner" payer master receiver jack
+process-transaction 23 amount 50 fee 10 note "dinner" payer master receiver ana
+process-transaction 24 amount 50 fee 10 note "dinner" payer master receiver ana
+process-transaction 25 amount 50 fee 10 note "dinner" payer master receiver kyle
+process-transaction 26 amount 50 fee 10 note "dinner" payer master receiver kyle
+process-transaction 27 amount 50 fee 10 note "dinner" payer master receiver kyle
+process-transaction 28 amount 50 fee 10 note "dinner" payer master receiver robert
+process-transaction 29 amount 50 fee 10 note "dinner" payer master receiver robert
+process-transaction 30 amount 50 fee 10 note "dinner" payer master receiver robert
+
+# expect block details
+get-block 2
+
+# no errors
+validate
+
+# expect transaction details
+get-transaction 30
+
+# expect 'no such account'
+get-account-balance mary
+
+create-account mary
+
+# still expect 'no such account' as it is not in the committed block
+get-account-balance mary
+
+# expect error - only one ledger service allowed at one time
+create-ledger test description test seed 1
+
+
+# any command that does not follow exact command format will throw 'invalid command' exception, the program is case sensitive
+# expect error 'invalid command' - program stops
+Create-account bob
+
+
+
+
+

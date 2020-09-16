@@ -1,0 +1,71 @@
+Created Account: mary
+Created Account: bob
+Created Account: bill
+Created Account: frank
+Created Account: jane
+Ledger Exception: getAccountBalance(id): No committed block
+processedTransaction: 1
+processedTransaction: 2
+processedTransaction: 3
+processedTransaction: 4
+processedTransaction: 5
+Ledger Exception: getAccountBalance(id): No committed block
+Ledger Exception: getAccountBalances: No committed blocks
+processedTransaction: 6
+processedTransaction: 7
+processedTransaction: 8
+processedTransaction: 9
+processedTransaction: 10
+Account Balance mary: 3000
+Account Balance bob: 3000
+Account Balance bill: 2000
+Account Balance frank: 2000
+Account Balance jane: 0
+Printing details of block number: 1
+Previous Hash: 
+Hash: 100976476103645581829137744269892744903046640980606062602119233662223480303338
+Transactions : 
+Transaction ID: 1 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: mary
+Transaction ID: 2 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: bob
+Transaction ID: 3 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: bill
+Transaction ID: 4 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: frank
+Transaction ID: 5 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: mary
+Transaction ID: 6 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: bob
+Transaction ID: 7 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: bill
+Transaction ID: 8 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: frank
+Transaction ID: 9 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: mary
+Transaction ID: 10 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: bob
+Account Balances:
+frank:2000
+bob:3000
+mary:3000
+bill:2000
+master:2147473647
+jane:0
+
+Transaction ID: 10 Amount: 1000 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: bob
+processedTransaction: 11
+Account Balance frank: 2000
+Account Balance jane: 0
+processedTransaction: 12
+processedTransaction: 13
+processedTransaction: 14
+processedTransaction: 15
+processedTransaction: 16
+processedTransaction: 17
+processedTransaction: 18
+processedTransaction: 19
+processedTransaction: 20
+Account Balance jane: 200
+Account Balance frank: 1790
+Account Balance mary: 3180
+Account Balance bob: 2730
+Printing the account balance map: 
+frank - 1790
+bob - 2730
+mary - 3180
+bill - 2000
+master - 2147473747
+jane - 200
+Ledger Exception: processTransaction: Transaction Invalid
+Ledger Exception: processTransaction: Transaction Invalid

@@ -1,0 +1,100 @@
+Ledger Exception: getAccountBalances: No committed blocks
+Ledger Exception: validate(): No committed blocks - nothing to validate
+Created Account: jack
+Created Account: robert
+Ledger Exception: createAccount jack: The account already exists
+Created Account: kyle
+Created Account: ana
+Ledger Exception: processTransaction: Transaction Invalid
+processedTransaction: 2
+Ledger Exception: processTransaction: Transaction Invalid
+Ledger Exception: processTransaction: Transaction Invalid
+Ledger Exception: processTransaction: Transaction Invalid
+Ledger Exception: getTransaction(id) : Transaction does not exist
+Transaction ID: 2 Amount: 100 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: robert
+Ledger Exception: getAccountBalances: No committed blocks
+Ledger Exception: getAccountBalance(id): No committed block
+processedTransaction: 1
+processedTransaction: 3
+processedTransaction: 4
+processedTransaction: 5
+processedTransaction: 6
+processedTransaction: 7
+processedTransaction: 8
+processedTransaction: 9
+processedTransaction: 10
+Account Balance jack: 395
+Account Balance kyle: 490
+Account Balance ana: 490
+Account Balance robert: 675
+Account Balance master: 2147481597
+Printing the account balance map: 
+robert - 675
+kyle - 490
+ana - 490
+jack - 395
+master - 2147481597
+Ledger Exception: processTransaction: Payer or Receiver does not exist
+Ledger Exception: processTransaction: Payer or Receiver does not exist
+Ledger Exception: getBlock(id): Block 2 does not exist
+Printing details of block number: 1
+Previous Hash: 
+Hash: 54291249055696496530322207702360519969671187940026860773239001048160236783746
+Transactions : 
+Transaction ID: 2 Amount: 100 Fee: 10 Note: "fund account" Payer ID: master Receiver ID: robert
+Transaction ID: 1 Amount: 500 Fee: 50 Note: "fund account" Payer ID: master Receiver ID: jack
+Transaction ID: 3 Amount: 500 Fee: 50 Note: "fund account" Payer ID: master Receiver ID: kyle
+Transaction ID: 4 Amount: 500 Fee: 50 Note: "fund account" Payer ID: master Receiver ID: ana
+Transaction ID: 5 Amount: 500 Fee: 50 Note: "fund account" Payer ID: master Receiver ID: robert
+Transaction ID: 6 Amount: 50 Fee: 10 Note: "personal transfer" Payer ID: jack Receiver ID: robert
+Transaction ID: 7 Amount: 20 Fee: 10 Note: "personal transfer" Payer ID: ana Receiver ID: kyle
+Transaction ID: 8 Amount: 20 Fee: 10 Note: "personal transfer" Payer ID: kyle Receiver ID: robert
+Transaction ID: 9 Amount: 20 Fee: 10 Note: "personal transfer" Payer ID: jack Receiver ID: ana
+Transaction ID: 10 Amount: 5 Fee: 10 Note: "personal transfer" Payer ID: jack Receiver ID: robert
+Account Balances:
+robert:675
+kyle:490
+ana:490
+jack:395
+master:2147481597
+
+processedTransaction: 21
+processedTransaction: 22
+processedTransaction: 23
+processedTransaction: 24
+processedTransaction: 25
+processedTransaction: 26
+processedTransaction: 27
+processedTransaction: 28
+processedTransaction: 29
+processedTransaction: 30
+Printing details of block number: 2
+Previous Hash: 54291249055696496530322207702360519969671187940026860773239001048160236783746
+Hash: 42330620455032264873197256403053404110762982035849473180775682646311511629798
+Transactions : 
+Transaction ID: 21 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: jack
+Transaction ID: 22 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: jack
+Transaction ID: 23 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: ana
+Transaction ID: 24 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: ana
+Transaction ID: 25 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: kyle
+Transaction ID: 26 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: kyle
+Transaction ID: 27 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: kyle
+Transaction ID: 28 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: robert
+Transaction ID: 29 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: robert
+Transaction ID: 30 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: robert
+Account Balances:
+robert:825
+kyle:640
+ana:590
+jack:495
+master:2147481097
+
+Transaction ID: 30 Amount: 50 Fee: 10 Note: "dinner" Payer ID: master Receiver ID: robert
+Ledger Exception: getAccountBalance(id): No such account
+Created Account: mary
+Ledger Exception: getAccountBalance(id): No such account
+Ledger Exception: createLedger: Ledger Service already initialized
+Exception in thread "main" com.cscie97.ledger.CommandProcessorException: Create-account: Invalid Command, line: 135
+	at com.cscie97.ledger.CommandProcessor.processCommand(CommandProcessor.java:140)
+	at com.cscie97.ledger.CommandProcessor.processCommandFile(CommandProcessor.java:183)
+	at com.cscie97.ledger.test.TestDriver.main(TestDriver.java:17)
