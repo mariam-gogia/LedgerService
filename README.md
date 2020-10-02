@@ -12,4 +12,5 @@ The program is compiled using the following command:
 javac com/cscie97/ledger/*.java com/cscie97/ledger/test/*.java
 
 The program is run using the provided scripts and the following command:
+
 java -cp . com.cscie97.ledger.test.TestDriver ledger.script
